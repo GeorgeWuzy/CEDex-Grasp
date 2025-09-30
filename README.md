@@ -1,2 +1,2 @@
-# CEDex-Grasp
+# CEDex
 Official repository of CEDex
