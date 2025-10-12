@@ -19,6 +19,7 @@ Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at S
 <span class="author-block">
   <a href="https://shanluo.github.io/" style="color: #4A90E2 !important;">Shan Luo</a><sup>1</sup>
 </span>
+
 <sup>1</sup> King's College London, <sup>2</sup> Imperial College London, <sup>3</sup> Nankai University
 
 
