@@ -21,6 +21,7 @@ Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at S
 </span>
 <sup>1</sup> King's College London, <sup>2</sup> Imperial College London, <sup>3</sup> Nankai University
 
+
 <p align="center">
     <a href='https://arxiv.org/abs/2509.24661'>
       <img src='https://img.shields.io/badge/Paper-arXiv-red?style=plastic&logo=arXiv&logoColor=red' alt='Paper arXiv'>
