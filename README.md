@@ -1,5 +1,5 @@
-# CEDex
-**Official Repository of CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human-like Contact Representations**
+# CEDex Code and Dataset
+Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human-like Contact Representations**
 
 Zhiyuan Wu<sup>1</sup>, Rolandos Alexandros Potamias<sup>2</sup>, Xuyang Zhang<sup>1</sup>, Zhongqun Zhang<sup>3</sup>, Jiankang Deng<sup>2</sup>, Shan Luo<sup>1</sup>  
 <sup>1</sup> King's College London, <sup>2</sup> Imperial College London, <sup>3</sup> Nankai University
