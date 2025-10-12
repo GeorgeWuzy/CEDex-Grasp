@@ -1,7 +1,24 @@
 # CEDex Code and Dataset
 Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human-like Contact Representations**
 
-Zhiyuan Wu<sup>1</sup>, Rolandos Alexandros Potamias<sup>2</sup>, Xuyang Zhang<sup>1</sup>, Zhongqun Zhang<sup>3</sup>, Jiankang Deng<sup>2</sup>, Shan Luo<sup>1</sup>  
+<span class="author-block">
+  <a href="https://georgewuzy.github.io/" style="color: #4A90E2 !important;">Zhiyuan Wu</a><sup>1</sup>,
+</span>
+<span class="author-block">
+  <a href="https://rolpotamias.github.io/" style="color: #4A90E2 !important;">Rolandos Alexandros Potamias</a><sup>2</sup>,
+</span>
+<span class="author-block">
+  <a href="https://scholar.google.com/citations?user=osQ5dAkAAAAJ&hl=zh-CN&oi=ao" style="color: #4A90E2 !important;">Xuyang Zhang</a><sup>1</sup>,
+</span>
+<span class="author-block">
+  <a href="https://zhongqunzhang.github.io/" style="color: #4A90E2 !important;">Zhongqun Zhang</a><sup>3</sup>,
+</span>
+<span class="author-block">
+  <a href="https://jiankangdeng.github.io/" style="color: #4A90E2 !important;">Jiankang Deng</a><sup>2</sup>,
+</span>
+<span class="author-block">
+  <a href="https://shanluo.github.io/" style="color: #4A90E2 !important;">Shan Luo</a><sup>1</sup>
+</span>
 <sup>1</sup> King's College London, <sup>2</sup> Imperial College London, <sup>3</sup> Nankai University
 
 <p align="center">
