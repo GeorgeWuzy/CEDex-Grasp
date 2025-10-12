@@ -17,14 +17,11 @@ class HandModel:
         self.device = device
         self.robot_name = robot_name
         self.batch_size = batch_size
-        # prepare model
         self.robot = pk.build_chain_from_urdf(open(urdf_filename).read()).to(dtype=torch.float, device=self.device)
 
-        # prepare geometries for visualization
         self.global_translation = None
         self.global_rotation = None
         self.softmax = torch.nn.Softmax(dim=-1)
-        # prepare contact point basis and surface point samples
         self.surface_points = {}
         self.surface_points_normal = {}
         visual = URDF.from_xml_string(open(urdf_filename).read())
@@ -39,15 +36,11 @@ class HandModel:
         removed_links = json.load(open(os.path.join("data", 'urdf/removed_links.json')))[robot_name]
 
         for i_link, link in enumerate(visual.links):
-            # 检查是否要移除这个链接
-            if link.name in removed_links:  # 新添加的检查逻辑
-                continue  # 跳过不需要的链接
-            # print(f"Processing link #{i_link}: {link.name}")
-            # load mesh
+            if link.name in removed_links:
+                continue
             if len(link.visuals) == 0:
                 continue
             if type(link.visuals[0].geometry) == Mesh:
-                # print(link.visuals[0])
                 if robot_name == 'shadowhand' or robot_name == 'allegro' or robot_name == 'barrett':
                     filename = link.visuals[0].geometry.filename.split('/')[-1]
                 elif robot_name == 'allegro':
