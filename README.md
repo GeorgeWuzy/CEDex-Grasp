@@ -22,7 +22,7 @@ In this paper, we propose **CEDex**, a novel cross-embodiment dexterous grasp sy
 
 ## Dataset Release
 
-We have currently released the **real-world object set** grasp data, including objects from [ContactDB](https://contactdb.cc.gatech.edu/) and [YCB](https://www.ycbbenchmarks.com/). You can find a visual representation of this dataset below:
+We have currently released the **real-world object set** grasp data, including objects from [ContactDB](https://contactdb.cc.gatech.edu/) and [YCB](https://www.ycbbenchmarks.com/).
 
 ![Real-World Objects](assets/rw_objects.gif)
 
