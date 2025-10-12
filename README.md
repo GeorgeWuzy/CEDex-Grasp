@@ -81,13 +81,14 @@ To prepare the dataset, download the robot and object data from [Google Drive li
 
 ### Data Usage
 
-You can use the dataset by calling the robot hand through the `utils_model/HandModel.py`. This implementation is consistent with [GenDexGrasp](https://github.com/tengyu-liu/GenDexGrasp)), but please note that there are differences in object URDF files. Make sure to use our provided objects.
+Our data is in `cedex/{robot_name}.pt` files, where each grasp data contains the following keys: `['q']`, `['object_name']`, and `['robot_name']`. You can use the dataset by calling the robot hand through the `utils_model/HandModel.py`. This implementation is consistent with [GenDexGrasp](https://github.com/tengyu-liu/GenDexGrasp)), but please note that there are differences in object URDF files. Make sure to use our provided objects.
 
 To visualize the grasping data, you can use the following command:
 
 ```bash  
 python vis_cedex.py --input_file cedex/allegro.pt  
 ```
+
 ### Grasp Validation
 
 For grasp validation, our implementation is based on [DRO-Grasp](https://github.com/zhenyuwei2003/DRO-Grasp). We have modified some parameters of the controller. You can evaluate the grasping performance using the following command:
@@ -111,4 +112,4 @@ If you find this work helpful, please consider citing us using the following Bib
 
 ## Contact
 
-If you have any questions, feel free to contact me through email at [zhiyuan.1.wu@kcl.ac.uk](zhiyuan.1.wu@kcl.ac.uk)
+If you have any questions, feel free to contact me through email at [zhiyuan.1.wu@kcl.ac.uk](mailto:zhiyuan.1.wu@kcl.ac.uk).
