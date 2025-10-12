@@ -52,6 +52,63 @@ The code for data generation will be published after the acceptance of the paper
 
 ## Dependencies
 
+Create a new conda environment. My CUDA version (nvcc --version) is 12.4
+```bash  
+conda create -n cedex python=3.8  
+conda activate cedex
+pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
+``` 
+
+Install required packages.
+```bash  
+pip install -r requirements.txt
+``` 
+
+Install Isaac Gym Environment (for validation).
+
+Download [Isaac Gym](https://developer.nvidia.com/isaac-gym/download) from the official website, then:
+```bash  
+tar -xvf IsaacGym_Preview_4_Package.tar.gz
+cd isaacgym/python
+pip install -e .
+``` 
+
 ## Data Preparation
 
+To prepare the dataset, download the robot and object data from [Google Drive link](https://drive.google.com/file/d/1xmBV66SO-TjkREYTujh08QkucCWHYLxx/view?usp=sharing) and extract the contents to the `data/` directory. Note that we have currently only released the grasp data for real-world objects. 
+
 ## Usage
+
+### Data Usage
+
+You can use the dataset by calling the robot hand through the `utils_model/HandModel.py`. This implementation is consistent with [GenDexGrasp](https://github.com/tengyu-liu/GenDexGrasp)), but please note that there are differences in object URDF files. Make sure to use our provided objects.
+
+To visualize the grasping data, you can use the following command:
+
+```bash  
+python vis_cedex.py --input_file cedex/allegro.pt  
+```
+### Grasp Validation
+
+For grasp validation, our implementation is based on [DRO-Grasp](https://github.com/zhenyuwei2003/DRO-Grasp). We have modified some parameters of the controller. You can evaluate the grasping performance using the following command:
+
+```bash
+python eval_grasp.py --input_file cedex/allegro.pt --object_name ycb+055_baseball # --use_gui --eval_diversity
+```
+
+## Citation
+
+If you find this work helpful, please consider citing us using the following BibTeX entry:
+
+```bibtex  
+@article{wu2025cedex,  
+  title={CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human-like Contact Representations},  
+  author={Wu, Zhiyuan and Potamias, Rolandos Alexandros and Zhang, Xuyang and Zhang, Zhongqun and Deng, Jiankang and Luo, Shan},  
+  journal={arXiv preprint arXiv:2509.24661},  
+  year={2025}  
+}  
+```
+
+## Contact
+
+If you have any questions, feel free to contact me through email at [zhiyuan.1.wu@kcl.ac.uk](zhiyuan.1.wu@kcl.ac.uk)
