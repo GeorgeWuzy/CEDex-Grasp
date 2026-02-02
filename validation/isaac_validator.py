@@ -63,6 +63,7 @@ class IsaacValidator:
         self.sim_params.physx.num_velocity_iterations = 0
         self.sim_params.physx.contact_offset = 0.01
         self.sim_params.physx.rest_offset = 0.0
+        self.sim_params.physx.max_depenetration_velocity = 1.0
 
         self.sim = self.gym.create_sim(self.gpu, self.gpu, gymapi.SIM_PHYSX, self.sim_params)
         self._rigid_body_states = self.gym.acquire_rigid_body_state_tensor(self.sim)
