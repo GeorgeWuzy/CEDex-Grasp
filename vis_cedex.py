@@ -33,6 +33,23 @@ def load_object_mesh(dataset_type, object_name):
                 test_path = f'{models_directory}/{folder}/google_16k/nontextured.stl'
                 object_mesh_path = test_path
                 break
+    elif dataset_type == 'objaverse':
+        objaverse_base_dir = os.path.join(OBJ_DIR, 'objaverse/object_dataset')
+        category = ''
+        
+        # Handle prefixes to determine category and clean object_name
+        if object_name.startswith('large_'):
+            category = 'large'
+            object_name = object_name[6:]  # Remove 'large_'
+        elif object_name.startswith('medium_'):
+            category = 'medium'
+            object_name = object_name[7:]  # Remove 'medium_'
+        elif object_name.startswith('small_'):
+            category = 'small'
+            object_name = object_name[6:]  # Remove 'small_'
+            
+        # Construct the full path: data/object/objaverse/{category}/{name}/{name}.obj
+        object_mesh_path = os.path.join(objaverse_base_dir, category, object_name, f'{object_name}.obj')
 
     object_mesh = tm.load(object_mesh_path)
     
@@ -78,6 +95,12 @@ if __name__ == '__main__':
     
     # Extract the robot name from the filename
     robot_name = os.path.basename(args.input_file).split('.')[0]
+    if 'allegro' in args.input_file:
+        robot_name = 'allegro'
+    elif 'barrett' in args.input_file:
+        robot_name = 'barrett'
+    elif 'shadowhand' in args.input_file:
+        robot_name = 'shadowhand'
     
     print(f"Robot name: {robot_name}")
 
@@ -87,9 +110,10 @@ if __name__ == '__main__':
     # Organize grasps by object names
     object_grasps = {}
     vis_list = ["ycb+006_mustard_bottle", "ycb+055_baseball", "ycb+016_pear", "ycb+014_lemon", "ycb+021_bleach_cleanser", "ycb+053_mini_soccer_ball", "ycb+015_peach", "ycb+002_master_chef_can", "ycb+004_sugar_box", "ycb+077_rubiks_cube",
-                "contactdb+torusmedium", "contactdb+apple", "contactdb+duck", "contactdb+banana", "contactdb+waterbottle", "contactdb+piggybank", "contactdb+elephant", "contactdb+lightbulb", "contactdb+toruslarge"]
+                "contactdb+torusmedium", "contactdb+apple", "contactdb+duck", "contactdb+banana", "contactdb+waterbottle", "contactdb+piggybank", "contactdb+elephant", "contactdb+lightbulb", "contactdb+toruslarge", 
+                "large_1699128117be40d9a0b2b7437510ecc0", "large_16497e942e5b45f3ac55d93b3594d62a", "large_165e7f540e1c44dc867f2182bccb7981", "large_16558d37f0104c06baba50a896d52b28", "large_160e847759404e4c8c491ca3a0391a69"]
 
-    for grasp in grasp_data[::-1]:
+    for grasp in grasp_data:
         object_grasp = grasp['object_name']
         
         # Check if the current object_grasp is in vis_list
@@ -100,9 +124,14 @@ if __name__ == '__main__':
 
     # Visualize one random grasp for each object
     for object_grasp, grasps in object_grasps.items():
+    # for grasps in grasp_data:
+        # random_grasp = grasps
         # Select a random grasp
         random_grasp = np.random.choice(grasps)
-        dataset_type, object_name = random_grasp['object_name'].split('+')
+        if '+' in random_grasp['object_name']:
+            dataset_type, object_name = random_grasp['object_name'].split('+')
+        else: 
+            dataset_type, object_name = 'objaverse', random_grasp['object_name']
         q = random_grasp['q']
         
         print(f"Processing object: {object_grasp}")

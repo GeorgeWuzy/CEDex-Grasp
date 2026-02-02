@@ -1,5 +1,5 @@
 # CEDex Code and Dataset
-Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human-like Contact Representations**
+Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human-like Contact Representations (ICRA 2026)**
 
 <span class="author-block">
   <a href="https://georgewuzy.github.io/" style="color: #4A90E2 !important;">Zhiyuan Wu</a><sup>1</sup>,
@@ -40,15 +40,16 @@ In this paper, we propose **CEDex**, a novel cross-embodiment dexterous grasp sy
 
 ## Dataset Release
 
-We have currently released the **real-world object set** grasp data, including objects from [ContactDB](https://contactdb.cc.gatech.edu/) and [YCB](https://www.ycbbenchmarks.com/).
-
-![Real-World Objects](assets/rw_objects.gif)
-
-We will soon release a larger scale of **synthesis objects** grasp data, including objects from [Objaverse](https://objaverse.allenai.org/). Please stay tuned for updates!
+We have released a part of our **synthesis object set** grasp data, including objects from [Objaverse](https://objaverse.allenai.org/). We will soon release more data. Please stay tuned for updates!
 
 ![Simulation Objects](assets/sim_objects.gif)
 
-The code for data generation will be published after the acceptance of the paper.
+
+We have released the **real-world object set** grasp data, including objects from [ContactDB](https://contactdb.cc.gatech.edu/) and [YCB](https://www.ycbbenchmarks.com/).
+
+![Real-World Objects](assets/rw_objects.gif)
+
+The code for data generation will soon be published. Please stay tuned for updates!
 
 ## Dependencies
 
@@ -57,6 +58,12 @@ Create a new conda environment. My CUDA version (nvcc --version) is 12.4
 conda create -n cedex python=3.8  
 conda activate cedex
 pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
+git clone https://github.com/facebookresearch/pytorch3d.git
+cd pytorch3d
+# export MAX_JOBS=4 # set MAX_JOBS if your workstation doesn't have enough memory
+pip install -e .
+unset MAX_JOBS
+cd ../
 ``` 
 
 Install required packages.
@@ -75,18 +82,21 @@ pip install -e .
 
 ## Data Preparation
 
-To prepare the dataset, download the robot and object data from [Google Drive link](https://drive.google.com/file/d/1xmBV66SO-TjkREYTujh08QkucCWHYLxx/view?usp=sharing) and extract the contents to the `data/` directory. Note that we have currently only released the grasp data for real-world objects. 
+For **real-world object set** grasp data, download the robot and object data from [Google Drive link](https://drive.google.com/file/d/1xmBV66SO-TjkREYTujh08QkucCWHYLxx/view?usp=sharing) and extract the contents to the `data/` directory. Our grasp data is in `cedex/{robot_name}.pt`. 
+
+For **synthesis object set** grasp data, download the object and grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and extract the contents to the `data/object/objaverse` directory. Download the grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and put the contents to the `cedex_objaverse/` directory. `{robot_name}_isaac.pt` refer to grasp data after grasp execution in Isaac with no penetration. 
 
 ## Usage
 
 ### Data Usage
 
-Our data is in `cedex/{robot_name}.pt` files, where each grasp data contains the following keys: `['q']`, `['object_name']`, and `['robot_name']`. You can use the dataset by calling the robot hand through the `utils_model/HandModel.py`. This implementation is consistent with [GenDexGrasp](https://github.com/tengyu-liu/GenDexGrasp)), but please note that there are differences in object URDF files. Make sure to use our provided objects.
+In our data, each grasp data contains the following keys: `['q']` and `['object_name']`. You can use the dataset by calling the robot hand through the `utils_model/HandModel.py`. This implementation is consistent with [GenDexGrasp](https://github.com/tengyu-liu/GenDexGrasp), but please note that there are differences in object URDF files. Make sure to use our provided objects.
 
 To visualize the grasping data, you can use the following command:
 
 ```bash  
 python vis_cedex.py --input_file cedex/allegro.pt  
+python vis_cedex.py --input_file cedex_objaverse/allegro.pt  
 ```
 
 ### Grasp Validation
