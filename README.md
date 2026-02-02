@@ -84,7 +84,7 @@ pip install -e .
 
 For **real-world object set** grasp data, download the robot and object data from [Google Drive link](https://drive.google.com/file/d/1xmBV66SO-TjkREYTujh08QkucCWHYLxx/view?usp=sharing) and extract the contents to the `data/` directory. Our grasp data is in `cedex/{robot_name}.pt`. 
 
-For **synthesis object set** grasp data, download the object and grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and extract the contents to the `data/object/objaverse` directory. Download the grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and put the contents to the `cedex_objaverse/` directory. `{robot_name}_isaac.pt` refer to grasp data after grasp execution in Isaac with no penetration. 
+For **synthesis object set** grasp data, download the object and grasp data from [Google Drive link](https://drive.google.com/file/d/1M1HzIN4c6ZCKIp5i_xKIuajXg5FFcyz7/view?usp=sharing) and extract the contents to the `data/object/objaverse` directory. Download the grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and put the contents to the `cedex_objaverse/` directory. `{robot_name}_isaac.pt` refer to grasp data after grasp execution in Isaac with no penetration. 
 
 ## Usage
 
