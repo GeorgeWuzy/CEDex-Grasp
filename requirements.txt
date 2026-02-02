@@ -6,3 +6,4 @@ urdf_parser_py==0.0.4
 plotly==5.11.0
 transforms3d==0.4.1
 viser==1.0.0
+omegaconf==2.3.0
