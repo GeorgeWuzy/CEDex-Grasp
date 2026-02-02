@@ -60,7 +60,7 @@ pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https
 git clone https://github.com/facebookresearch/pytorch3d.git
 cd pytorch3d
 # export MAX_JOBS=4 # set MAX_JOBS if your workstation doesn't have enough memory
-pip install -e .
+python setup.py install
 unset MAX_JOBS
 cd ../
 ``` 
