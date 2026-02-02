@@ -1,0 +1,14 @@
+{
+    "urdf_path": {
+        "robotiq_3finger": "data/urdf/robotiq_3finger/urdf/robotiq_3finger_description_extended.urdf",
+        "barrett": "data/urdf/barrett_adagrasp/model_extended.urdf",
+        "allegro": "data/urdf/allegro_hand_description/allegro_hand_description_right_extended.urdf",
+        "shadowhand": "data/urdf/shadowhand/shadow_hand_right_extended.urdf"
+    },
+    "meshes_path": {
+        "robotiq_3finger": "data/urdf/robotiq_3finger/urdf",
+        "barrett": "data/urdf/barrett_adagrasp/meshes",
+        "allegro": "data/urdf/allegro_hand_description/meshes",
+        "shadowhand": "data/urdf/shadowhand/meshes"
+    }
+}

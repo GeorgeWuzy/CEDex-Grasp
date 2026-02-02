@@ -145,6 +145,13 @@ Stage 4: Validate and Filter Generated Grasps
 python eval_grasp_filtered.py --robot_name barrett --logs_path logs/dataset_generation_20260202_162359/barrett_contactdb/ # --use_gui # replace the logs_path to your log dir
 ```
 
+### Adapt to New Hands
+
+Our CEDex currently supports 1. ShadowHand, 2. Allegro, 3. Barret, 4. Robotiq-3F, 5. Leap Hand. To adapt to new hands, you need to :
+
+1. Build the human-robot remapping in `def remap_part_labels` in `utils_model/HandModel.py`. We have provided `visualize_hand_parts` command in `utils_model/HandModel.py` for reference. 
+2. Define `self.dis_key_point` and `self.keypoints` in `utils_model/HandModel.py`. We have provided `visualize_hand_surface_and_keypoints` command in `utils_model.HandModel.py` for reference. To define the keypoints, you may refer to this [issue](https://github.com/4DVLab/DexGrasp-Anything/issues/9). 
+
 ## Citation
 
 If you find this work helpful, please consider citing us using the following BibTeX entry:
