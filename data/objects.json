@@ -1,0 +1,27 @@
+{
+    "ContactDB":
+    [
+        "apple", "banana", "cylindermedium", "duck", "elephant", "piggybank", "toruslarge", 
+        "alarmclock", "binoculars",
+        "camera", "cubelarge", "cubemedium", "cubesmall", 
+        "cylinderlarge", "cylindersmall",
+        "flashlight", "gamecontroller", 
+        "hammer", "lightbulb", "mouse",  "phone", 
+        "pyramidlarge", "pyramidmedium", "pyramidsmall",
+        "stamp", "stanfordbunny", "stapler", "toothpaste", 
+        "torusmedium", "torussmall", 
+        "train", "waterbottle"
+    ],
+    "YCB": 
+    [
+        "016_pear", "055_baseball", "005_tomato_soup_can", "010_potted_meat_can", 
+        "002_master_chef_can", "003_cracker_box", "004_sugar_box", 
+        "006_mustard_bottle", "007_tuna_fish_can", 
+        "008_pudding_box", "009_gelatin_box", 
+        "012_strawberry", "014_lemon", "015_peach", 
+        "017_orange", "018_plum", "019_pitcher_base", "021_bleach_cleanser", 
+        "026_sponge", "035_power_drill", "036_wood_block", 
+        "048_hammer", "053_mini_soccer_ball", 
+        "061_foam_brick", "072_toy_airplane", "077_rubiks_cube"
+    ]
+}
