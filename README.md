@@ -118,7 +118,7 @@ python eval_grasp.py --input_file cedex/allegro.pt --object_name ycb+055_basebal
 
 You can use CEDex to generate your own grasp data. 
 
-Stage 1: Generate Human-Like Contact Maps
+**Stage 1**: Generate Human-Like Contact Maps
 ```bash
 cd contactgen
 python inf_contactdb.py
@@ -126,7 +126,7 @@ python inf_ycb.py
 cd ../
 ```
 
-Stage 2: Generate Grasps
+**Stage 2**: Generate Grasps
 ```bash
 python generate_data.py --robot_name barrett --dataset contactdb
 ```
@@ -135,12 +135,12 @@ python generate_data.py --robot_name barrett --dataset contactdb
 2) Hyperparameters of physical constraints in `utils_model/CMapAdam.py`
 3) Sort the top-k saved grasps in `generate_grasp.py` by different properties in contact energy
 
-Stage 3: Visualize Generated Grasps
+**Stage 3**: Visualize Generated Grasps
 ```bash
 python vis_generated_grasp.py --robot_name barrett --input_dir logs/dataset_generation_20260202_162359/barrett_contactdb/ # replace the input_dir to your log dir. 
 ```
 
-Stage 4: Validate and Filter Generated Grasps
+**Stage 4**: Validate and Filter Generated Grasps
 ```bash
 python eval_grasp_filtered.py --robot_name barrett --logs_path logs/dataset_generation_20260202_162359/barrett_contactdb/ # --use_gui # replace the logs_path to your log dir
 ```
