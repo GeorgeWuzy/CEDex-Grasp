@@ -147,8 +147,8 @@ class IsaacValidator:
 
             robot_properties = self.gym.get_actor_dof_properties(env, robot_handle)
             robot_properties["driveMode"].fill(gymapi.DOF_MODE_POS)
-            robot_properties["stiffness"].fill(1000)
-            robot_properties["damping"].fill(200)
+            robot_properties["stiffness"].fill(1e5)
+            robot_properties["damping"].fill(1e4)
             self.gym.set_actor_dof_properties(env, robot_handle, robot_properties)
 
             object_shape_properties = self.gym.get_actor_rigid_shape_properties(env, robot_handle)

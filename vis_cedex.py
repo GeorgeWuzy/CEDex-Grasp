@@ -26,13 +26,8 @@ def load_object_mesh(dataset_type, object_name):
 
     elif dataset_type == 'ycb':
         models_directory = os.path.join(OBJ_DIR, 'ycb')
-        object_mesh_path = None
-        
-        for folder in os.listdir(models_directory):
-            if object_name in folder:
-                test_path = f'{models_directory}/{folder}/google_16k/nontextured.stl'
-                object_mesh_path = test_path
-                break
+        object_mesh_path = f'{models_directory}/{object_name}/google_16k/nontextured.stl'
+
     elif dataset_type == 'objaverse':
         objaverse_base_dir = os.path.join(OBJ_DIR, 'objaverse/object_dataset')
         category = ''

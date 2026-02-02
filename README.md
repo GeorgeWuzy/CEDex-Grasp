@@ -80,11 +80,19 @@ cd isaacgym/python
 pip install -e .
 ``` 
 
+Install pointnet_lib for ContactGen.
+```bash
+cd contactgen
+cd pointnet_lib
+python setup.py install
+cd ../../
+```
+
 ## Data Preparation
 
 For **real-world object set** grasp data, download the robot and object data from [Google Drive link](https://drive.google.com/file/d/1xmBV66SO-TjkREYTujh08QkucCWHYLxx/view?usp=sharing) and extract the contents to the `data/` directory. Our grasp data is in `cedex/{robot_name}.pt`. 
 
-For **synthesis object set** grasp data, download the object and grasp data from [Google Drive link](https://drive.google.com/file/d/1M1HzIN4c6ZCKIp5i_xKIuajXg5FFcyz7/view?usp=sharing) and extract the contents to the `data/object/objaverse` directory. Download the grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and put the contents to the `cedex_objaverse/` directory. `{robot_name}_isaac.pt` refer to grasp data after grasp execution in Isaac with no penetration. 
+For **synthesis object set** grasp data, download the object and grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and extract the contents to the `data/object/objaverse` directory. Download the grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and put the contents to the `cedex_objaverse/` directory. `{robot_name}_isaac.pt` refer to grasp data after grasp execution in Isaac with no penetration. 
 
 ## Usage
 
@@ -96,7 +104,7 @@ To visualize the grasping data, you can use the following command:
 
 ```bash  
 python vis_cedex.py --input_file cedex/allegro.pt  
-python vis_cedex.py --input_file cedex_objaverse/allegro.pt  
+python vis_cedex.py --input_file cedex_objaverse/shadowhand.pt  
 ```
 
 ### Grasp Validation
@@ -105,6 +113,37 @@ For grasp validation, our implementation is based on [DRO-Grasp](https://github.
 
 ```bash
 python eval_grasp.py --input_file cedex/allegro.pt --object_name ycb+055_baseball # --use_gui --eval_diversity
+```
+
+### Grasp Generation
+
+You can use CEDex to generate your own grasp data. 
+
+Stage 1: Generate Human-Like Contact Maps
+```bash
+cd contactgen
+python inf_contactdb.py
+python inf_ycb.py
+cd ../
+```
+
+Stage 2: Generate Grasps
+```bash
+python generate_data.py --robot_name barrett --dataset contactdb
+```
+**Note**: Some hyperparameters can be adjusted to get more stable grasp results or more diverse grasp results. 
+1) Initial positions of robot hands in `utils_model/CMapAdam.py`
+2) Hyperparameters of physical constraints in `utils_model/CMapAdam.py`
+3) Sort the top-k saved grasps in `generate_grasp.py` by different properties in contact energy
+
+Stage 3: Visualize Generated Grasps
+```bash
+python vis_generated_grasp.py --robot_name barrett --input_dir logs/dataset_generation_20260202_162359/barrett_contactdb/ # replace the input_dir to your log dir. 
+```
+
+Stage 4: Validate and Filter Generated Grasps
+```bash
+python eval_grasp_filtered.py --robot_name barrett --logs_path logs/dataset_generation_20260202_162359/barrett_contactdb/ # --use_gui # replace the logs_path to your log dir
 ```
 
 ## Citation
