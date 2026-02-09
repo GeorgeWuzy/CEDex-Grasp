@@ -1,4 +1,4 @@
-# (Grasp Synthesis Code Released) CEDex Code and Dataset
+# CEDex Code and Dataset
 Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human-like Contact Representations (ICRA 2026)**
 
 <span class="author-block">
