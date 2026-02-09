@@ -148,8 +148,12 @@ class IsaacValidator:
 
             robot_properties = self.gym.get_actor_dof_properties(env, robot_handle)
             robot_properties["driveMode"].fill(gymapi.DOF_MODE_POS)
-            robot_properties["stiffness"].fill(1e5)
-            robot_properties["damping"].fill(1e4)
+            robot_properties["stiffness"][:6].fill(1e6) 
+            robot_properties["damping"][:6].fill(1e5)
+            robot_properties["armature"][:6].fill(1e-3)
+            robot_properties["stiffness"][6:].fill(1000.0) 
+            robot_properties["damping"][6:].fill(50.0)
+            robot_properties["armature"][6:].fill(1e-3)
             self.gym.set_actor_dof_properties(env, robot_handle, robot_properties)
 
             object_shape_properties = self.gym.get_actor_rigid_shape_properties(env, robot_handle)
@@ -225,7 +229,6 @@ class IsaacValidator:
         dof_states_grasped[:, 3:6] = torch.tensor(Rotation.from_matrix(robot_transform_grasped[:, :3, :3]).as_euler('XYZ'))
         q_grasped = dof_states_grasped[:, self.isaac2urdf_order].to(torch.device('cpu'))
         
-        # 记录物体初始位置（用于稳定性测试）
         start_pos = gymtorch.wrap_tensor(self._rigid_body_states)[::self.rigid_body_num, :3].clone()
 
         force_tensor = torch.zeros([len(self.envs), self.rigid_body_num, 3])  # env, rigid_body, xyz
