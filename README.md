@@ -39,14 +39,16 @@ Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at S
 In this paper, we propose **CEDex**, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising **500K objects** across four gripper types with **20M total grasps**.
 
 ## Updates
-- We have released our **grasp generation code**!
+- [Apr. 2026] We have released **more grasp data**! 
 
-- We have released a part of our **synthesis object set** grasp data, including objects from [Objaverse](https://objaverse.allenai.org/). We will soon release more data. Please stay tuned for updates!
+- [Feb. 2026] We have released our **grasp generation code**!
+
+- [Oct. 2025] We have released a part of our **synthesis object set** grasp data, including objects from [Objaverse](https://objaverse.allenai.org/). We will soon release more data. Please stay tuned for updates!
 
 ![Simulation Objects](assets/sim_objects.gif)
 
 
-- We have released the **real-world object set** grasp data, including objects from [ContactDB](https://contactdb.cc.gatech.edu/) and [YCB](https://www.ycbbenchmarks.com/).
+- [Oct. 2025] We have released the **real-world object set** grasp data, including objects from [ContactDB](https://contactdb.cc.gatech.edu/) and [YCB](https://www.ycbbenchmarks.com/).
 
 ![Real-World Objects](assets/rw_objects.gif)
 
@@ -91,7 +93,7 @@ cd ../../
 
 For **real-world object set** grasp data, download the robot and object data from [Google Drive link](https://drive.google.com/file/d/1Cfnt23fqyw_zLXqJq3a63KiknulkweyC/view?usp=sharing) and extract the contents to the `data/` directory. Our grasp data is in `cedex/{robot_name}.pt`. 
 
-For **synthesis object set** grasp data, download the object and grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and extract the contents to the `data/object/objaverse` directory. Download the grasp data from [Google Drive link](https://drive.google.com/drive/folders/158vnKHRjZ0DihWwUAgu52iE3MtHeoR8W?usp=sharing) and put the contents to the `cedex_objaverse/` directory. `{robot_name}_isaac.pt` refer to grasp data after grasp execution in Isaac with no penetration. 
+For **synthesis object set** grasp data, download the grasp data from [Google Drive link](https://drive.google.com/drive/folders/1ZjUVrfAvuLc-cc5S4joHkyIcYa9_VhUO?usp=sharing) and put the contents to the `cedex_objaverse/` directory. `{robot_name}_isaac.pt` refer to grasp data after grasp execution in Isaac with no penetration. 
 
 ## Usage
 
