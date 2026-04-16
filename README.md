@@ -91,9 +91,9 @@ cd ../../
 
 ## Data Preparation
 
-For **real-world object set** grasp data, download the robot and object data from [Google Drive link](https://drive.google.com/file/d/1Cfnt23fqyw_zLXqJq3a63KiknulkweyC/view?usp=sharing) and extract the contents to the `data/` directory. Our grasp data is in `cedex/{robot_name}.pt`. 
+For **real-world object set** grasp data, download the robot and object data from [OneDrive link](https://emckclac-my.sharepoint.com/:u:/g/personal/k24021603_kcl_ac_uk/IQDDknATihQyQJ9hfHt7_5OBAY9nqAcSQUMLXlCe34nohU0?e=fRTWMP) and extract the contents to the `data/` directory. Our grasp data is in `cedex/{robot_name}.pt`. 
 
-For **synthesis object set** grasp data, download the grasp data from [Google Drive link](https://drive.google.com/drive/folders/1ZjUVrfAvuLc-cc5S4joHkyIcYa9_VhUO?usp=sharing) and put the contents to the `cedex_objaverse/` directory. `{robot_name}_isaac.pt` refer to grasp data after grasp execution in Isaac with no penetration. 
+For **synthesis object set** grasp data, download the grasp data from [OneDrive link](https://emckclac-my.sharepoint.com/:f:/g/personal/k24021603_kcl_ac_uk/IgA3UfGGDSm4QJrkVD1TCENJAeumUO37dIUK1SCecGD6auE) and object data from [OneDrive link](https://emckclac-my.sharepoint.com/:u:/g/personal/k24021603_kcl_ac_uk/IQD_44y-unfpSoVEDIxRs1lkAXndXxC1DnI5X1tR8YN-tlg?e=IulJLh), and put the contents to the `cedex_objaverse/` directory. `{robot_name}_isaac.pt` refer to grasp data after grasp execution in Isaac with no penetration. 
 
 ## Usage
 
