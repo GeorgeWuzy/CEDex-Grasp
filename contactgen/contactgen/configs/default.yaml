@@ -1,7 +1,7 @@
 # dataloader
 dataset: grab
 n_samples: 2048
-batch_size: 128
+batch_size: 64
 n_workers: 8
 # train
 base_lr: 0.0008
