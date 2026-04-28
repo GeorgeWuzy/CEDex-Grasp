@@ -120,7 +120,14 @@ python eval_grasp.py --input_file cedex/allegro.pt --object_name ycb+055_basebal
 
 You can use CEDex to generate your own grasp data. 
 
-**Stage 1**: Generate Human-Like Contact Maps (based on [ContactGen](https://github.com/stevenlsw/contactgen))
+**Stage 0**(Optional): Train CVAE Model for Human-Like Contact Map Generation (based on [ContactGen](https://github.com/stevenlsw/contactgen)). We recommend to finetune on the pretrained checkpoint. 
+Download human grasp data from [OneDrive link](https://emckclac-my.sharepoint.com/:f:/g/personal/k24021603_kcl_ac_uk/IgDoRT6L-YGfSpZ1FisgCUHQAUQJu7Ls8cqIXskxWOBQex0) and put it to `data/`
+```bash
+cd contactgen
+python train.py
+```
+
+**Stage 1**: Generate Human-Like Contact Maps
 ```bash
 cd contactgen
 python inf_contactdb.py
