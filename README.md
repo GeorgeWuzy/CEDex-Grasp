@@ -125,6 +125,7 @@ Download human grasp data from [OneDrive link](https://emckclac-my.sharepoint.co
 ```bash
 cd contactgen
 python train.py
+cd ../
 ```
 
 **Stage 1**: Generate Human-Like Contact Maps
