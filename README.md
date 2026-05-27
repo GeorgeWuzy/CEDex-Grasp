@@ -39,9 +39,9 @@ Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at S
 In this paper, we propose **CEDex**, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising **500K objects** across four gripper types with **20M total grasps**.
 
 ## Updates
-- [Apr. 2026] We have added training code and configuration for CVAE model (based on [ContactGen](https://github.com/stevenlsw/contactgen)). 
+- [May. 2026] We have released **more synthesis object set** grasp data.
 
-- [Apr. 2026] We have released **more synthesis object set** grasp data.
+- [Apr. 2026] We have added training code and configuration for CVAE model (based on [ContactGen](https://github.com/stevenlsw/contactgen)). 
 
 - [Feb. 2026] We have released our **grasp generation code**.
 
