@@ -39,6 +39,8 @@ Official Repository of **CEDex: Cross-Embodiment Dexterous Grasp Generation at S
 In this paper, we propose **CEDex**, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising **500K objects** across four gripper types with **20M total grasps**.
 
 ## Updates
+- [Nov. 2026] We have added instructions for post-processing penetration optimization.
+
 - [May. 2026] We have released **more synthesis object set** grasp data.
 
 - [Apr. 2026] We have added training code and configuration for CVAE model (based on [ContactGen](https://github.com/stevenlsw/contactgen)). 
@@ -163,6 +165,8 @@ Our CEDex currently supports 1. ShadowHand, 2. Allegro, 3. Barret, 4. Robotiq-3F
 
 1. Build the human-robot remapping in `def remap_part_labels` in `utils_model/HandModel.py`. We have provided `visualize_hand_parts` command in `utils_model/HandModel.py` for reference. 
 2. Define `self.dis_key_point` and `self.keypoints` in `utils_model/HandModel.py`. We have provided `visualize_hand_surface_and_keypoints` command in `utils_model.HandModel.py` for reference. To define the keypoints, please refer to this [issue](https://github.com/4DVLab/DexGrasp-Anything/issues/9). 
+
+For further reducing hand-object penetration after grasp generation, you can refer to the [code](https://github.com/GeorgeWuzy/DiffMorphGrasp/blob/0344ac9e14e02841a91112c6cba97911d9b0f949/utils/penetration.py#L65) and use it as a post-processing penetration optimization step.
 
 ## Citation
 
